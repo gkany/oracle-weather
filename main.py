@@ -75,7 +75,7 @@ def weather_data_into_chain():
     file_time = file_time.replace(" ", "")
     file_time = file_time.replace(":", "")
     filename = "wbj-{}".format(file_time)
-    filename = "{}-{}".format(random_lowercases(3), file_time) # for test
+    # filename = "{}-{}".format(random_lowercases(3), file_time) # for test
     content = str(weather_data)
     logger.info("filename: {}, content: {}".format(filename, content))
     res, status = create_file(filename, content, register["name"])
@@ -88,8 +88,8 @@ def weather_data_function():
         count += 1
         logger.info(">>> weather update count: {}".format(count))
         weather_data_into_chain()
-        # time.sleep(15*60*1) # 15分钟更新一次
-        time.sleep(10)
+        time.sleep(15*60*1) # 15分钟更新一次
+        # time.sleep(10)
 
 def init():
     init_wallet()
